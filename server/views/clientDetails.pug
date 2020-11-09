@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title #{clientName}
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    link(rel="stylesheet" href="css/materialize.min.css")
+  body
+    div
+      nav(class="red darken-4" role="navigation")
+        div(class="nav-wrapper container")
+          a(id="logo-container" href="#" class="brand-logo") Nearest Candidates
+    div(style="margin: 50px;")
+      h2 Client: #{clientName}
+      h2 Closest Candidate: #{candidateName}
+      h2 Mode of Transport: #{transport}
+      h2 Candidate Distance to Client: #{distance} m
+      h2 Candidate Time to Client: #{duration} s
+
