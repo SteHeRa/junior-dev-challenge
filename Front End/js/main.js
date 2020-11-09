@@ -4,7 +4,6 @@ function addPinsOnMap(latLongs) {
     html: '<img height="50px" width="50px" src="pictures/pin.png"></img>',
   });
   for (var i = 0; i < latLongs.length; i++) {
-    latLongs[i];
     var marker2 = L.marker([latLongs[i].lat, latLongs[i].lon], {
       icon: myIcon,
     }).addTo(map);
@@ -14,8 +13,9 @@ function addPinsOnMap(latLongs) {
     marker2.on('mouseover', function () {
       this.openPopup();
     });
-    marker2.on('click', function () {
-      fetch(`http://localhost:3000/client?${latLongs[i].name}`);
+    marker2.on('click', function (e) {
+      const clientLatLng = this.getLatLng();
+      window.location.href = `http://localhost:3000/client?lat=${clientLatLng.lat}&lng=${clientLatLng.lng}`;
     });
   }
 }
