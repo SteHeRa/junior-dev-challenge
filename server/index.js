@@ -7,7 +7,7 @@ const PORT = 3000;
 
 app.use(express.static('../Front End'));
 
-app.use('/', router)
+app.use('/', router);
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
