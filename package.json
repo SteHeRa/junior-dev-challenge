@@ -1,0 +1,28 @@
+{
+  "name": "junior-dev-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SteHeRa/junior-dev-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SteHeRa/junior-dev-challenge/issues"
+  },
+  "homepage": "https://github.com/SteHeRa/junior-dev-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.1.2"
+  }
+}
