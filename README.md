@@ -17,7 +17,8 @@ These instructions will help you setup a local development instance of the app.
 ### Setup prerequisites
 
 - You will require Node.js installed on your machine.
-- For an example of how to fill `/server/.env` see `/server/.env.example`
+- You need a `.env` file in your root directory.
+- For an example of how to fill `.env` see `.env.example`
 
 #### install dependencies
 
