@@ -34,7 +34,7 @@ async function getCoords(locations) {
 
 //Helper function to find closest candidate by querying the mapbox api
 async function getClosestCandidate(client) {
-  const data = fs.readFileSync('../Data/candidates.json');
+  const data = fs.readFileSync(`${__dirname}/../../Data/candidates.json`);
   const candidates = JSON.parse(data).Candidates;
   const processedCandidates = await getCoords(candidates);
   let closestCandidate;
@@ -72,10 +72,9 @@ async function getClosestCandidate(client) {
 
 async function getClientDetails(req, res) {
   try {
-    console.log(req.query);
     const lat = req.query.lat;
     const lng = req.query.lng;
-    const data = fs.readFileSync('../Data/locations.json');
+    const data = fs.readFileSync(`${__dirname}/../../Data/locations.json`);
     const clients = JSON.parse(data).Clients;
     const processedClients = await getCoords(clients);
     let client;
@@ -86,15 +85,16 @@ async function getClientDetails(req, res) {
       }
     }
     const closestCandidate = await getClosestCandidate(client);
-    console.log(closestCandidate);
-    const clientDetails = pug.renderFile('./views/clientDetails.pug', {
-      clientName: client.name,
-      candidateName: closestCandidate.name,
-      transport: closestCandidate.modeOfTransport,
-      duration: closestCandidate.duration,
-      distance: closestCandidate.distance,
-    });
-    console.log(clientDetails);
+    const clientDetails = pug.renderFile(
+      `${__dirname}/../views/clientDetails.pug`,
+      {
+        clientName: client.name,
+        candidateName: closestCandidate.name,
+        transport: closestCandidate.modeOfTransport,
+        duration: closestCandidate.duration,
+        distance: closestCandidate.distance,
+      }
+    );
     res.status(200);
     res.send(clientDetails);
   } catch (err) {
@@ -106,7 +106,7 @@ async function getClientDetails(req, res) {
 
 async function getClients(req, res) {
   try {
-    const data = fs.readFileSync('../Data/locations.json');
+    const data = fs.readFileSync(`${__dirname}/../../Data/locations.json`);
     const clients = JSON.parse(data).Clients;
     const processedClients = await getCoords(clients);
     res.status(200);
