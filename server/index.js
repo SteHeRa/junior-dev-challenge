@@ -5,7 +5,7 @@ const app = express();
 
 const PORT = 3000;
 
-app.use(express.static('../Front End'));
+app.use(express.static(`${__dirname}/../Front End`));
 
 app.use('/', router);
 
